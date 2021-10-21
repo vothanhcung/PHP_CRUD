@@ -3,7 +3,6 @@
 //  var
 $key = 5;
 
-
 // func
 $ham = function($tham_so){
     echo $tham_so;
@@ -77,10 +76,53 @@ class Trait_Example2 {
 }
 
 // class
+class Table {
+    public $mau_sac;
+    public $so_chan_ban;
+    function __construct($mau_sac, $so_chan_ban){
+        $this->mau_sac = $mau_sac;
+        $this->so_chan_ban = $so_chan_ban;
+    }
+    function intro(){
+        echo 'Bàn màu '.$this->mau_sac.' có '.$this->so_chan_ban.' chân bàn';
+    }
+    function display(){
+        echo 'Hello World';
+    }
 
-// abstract
+}
+class Table_Child extends Table{
+    public $chat_lieu;
+    function __construct($mau_sac, $so_chan_ban, $chat_lieu){
+        $this->mau_sac = $mau_sac;
+        $this->so_chan_ban = $so_chan_ban;
+        $this->chat_lieu = $chat_lieu;
+    } 
+    function intro(){
+        echo "Đây là chiếc bàn có màu {$this->mau_sac},có {$this->so_chan_ban} chân, và làm bằng {$this->chat_lieu}";
+        parent::intro();
+        parent::display();
+    }
+}
+$child = new Table_Child('nâu', 4, 'gỗ');
+$child->display();
+$child->intro();
 
-// interface
+
+// abstract: chi khai bao phuong thuc
+abstract class Abs_Table{
+    public $so_chan;
+    public $mau_sac;
+    public function intro(){
+        echo 'haha';
+    }
+}
+
+// interface: ko duoc co thuoc tinh
+interface In_Table{
+    public function xep_chong();
+    public function don_ban();
+}
 
 
 ?>
