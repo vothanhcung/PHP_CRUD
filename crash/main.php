@@ -4,15 +4,15 @@
 $key = 5;
 
 // func
-$ham = function($tham_so){
-    echo $tham_so;
+$method = function($a){
+    echo $a;
  };
- $ham(1);
+ $method(1);
 
-function ham_co_tham_so($tham_so){
-    echo $tham_so;
+function demo_method($a){
+    echo $a;
 }
-ham_co_tham_so(12);
+demo_method(12);
 
 // vong lap for
 for($i = 1; $i < 11; $i++){
